@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, CheckBox } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+// import CheckBox from '@react-native-community/checkbox';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
-  const [isSelected, setSelection] = useState(false);
+  const [isSelected, setSelection] = useState(true);
 
   const handleLogin = ()=> {
     console.log(email);
@@ -13,7 +14,6 @@ export default function Login() {
     setEmail('');
   };
 
-  const 
 
   return (
     <View style={styles.container}>
@@ -36,14 +36,14 @@ export default function Login() {
           onChangeText = {(newValue)=> setCode(newValue)}
           secureTextEntry={isSelected}
         />
-        <View style={styles.checkboxContainer}> 
+        {/* <View style={styles.checkboxContainer}> 
           <CheckBox
             value={isSelected}
             onValueChange={setSelection}
             style={styles.checkbox}
           />
           <Text style={styles.label}>Show password</Text>
-        </View>
+        </View> */}
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.btnText}>Login</Text>
         </TouchableOpacity>
